@@ -3,5 +3,5 @@
 <% if !@booking.booking_completed %>
     <%= button_to 'Return item', return_item_path(item_id: @booking.item_id, booking_id: @booking.id) %>
 <% else %>
-    <%= button_to 'Leave review'%>
+    <%= link_to 'Leave review', new_review_path(booking_id: @booking.id) %>
 <%end%>

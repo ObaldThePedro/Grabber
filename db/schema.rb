@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2019_06_19_093420) do
   create_table "reviews", force: :cascade do |t|
     t.string "description"
     t.integer "user_id"
-    t.integer "item_id"
-    t.index ["item_id"], name: "index_reviews_on_item_id"
+    t.integer "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
