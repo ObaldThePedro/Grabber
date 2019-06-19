@@ -21,17 +21,33 @@ class ItemsController < ApplicationController
     end
 
     def show
-      @item = Item.find(params[:id])
+      @item = Item.find params[:id]
+    end
+
+    def edit
+      @item = Item.find params[:id]
+    end
+
+    def update
+      @item = Item.find params[:id]
+      if @item.update(:image, :description)
+        redirect_to my_items_path
+      else
+        flash.now[:error] = "Please give a name to your item"
+        render 'edit'
+      end
     end
 
     def destroy
-      @item = Item.find(params[:id])
-
+      @item = Item.find params[:id]
+      @item.destroy
+      redirect_to my_items_path
     end
+
     private
 
    def answer_params
-       params.require(:item).permit(:name, :image)
+       params.require(:item).permit(:name, :description, :image)
    end
 
 end

@@ -3,4 +3,9 @@
 <%= image_tag(@item.image)%>
 <% if @item.user_id != session[:user_id] %>
     <%= link_to "Borrow", create_booking_path(item_id: @item.id) %>
+<% else %>
+    <%= link_to 'Delete item', item_path(@item),
+    method: :delete,
+    data: {confirm: 'Are you sure you want to remove this item?' }%><br>
+    <%= link_to 'Update item details', edit_item_path(@item) %>    
 <%end%>

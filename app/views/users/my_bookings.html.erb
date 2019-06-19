@@ -1,3 +1,8 @@
+<% if @bookings.length == 0 %>
+    <p>You don't have any borrowed items. Maybe you can fix those Levi's jeans that you love with a sewing machine...<%= link_to "Check it out!", items_path %></p>
+<%else %>
+    <p>You currently have <%= @bookings.length %> items booked,please don't forget to return them!</p>
+    <%end%>
 
 <% @bookings.each do |booking| %>
 <ul>
