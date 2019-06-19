@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     has_many :bookings
     has_many :reviews, through: :bookings
     has_one_attached :image
-    validates :image, presence:true
+    validates :name, presence: true
 
 
 

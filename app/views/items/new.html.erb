@@ -1,8 +1,13 @@
+<% if flash[:error] %>
+  <p>
+   <%= flash[:error] %>
+  </p>
+<% end %>
 <%= form_for @item do |f|%>
 <%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :price %>
-<%= f.number_field :price %>
+<%= f.text_field :name %><br>
+<%= f.label :description %>
+<%= f.text_area :description %><br>
 <%= f.label :image %>
 <%= f.file_field :image %>
 <%= f.submit %>

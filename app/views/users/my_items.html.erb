@@ -1,7 +1,7 @@
 <body>
 <% @user.items.each do |item|%>
 <ul>
-<li>Item: <%= link_to item.name, item_path(item) %> - Price <%= item.price%>£</li>
+<li>Item: <%= link_to item.name, item_path(item) %></li>
 </ul>
 <%end%>
 </body>
