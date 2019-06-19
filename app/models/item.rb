@@ -1,7 +1,13 @@
 class Item < ApplicationRecord
     belongs_to :user
     has_many :bookings
-    has_many :reviews
+    has_many :reviews, through: :bookings
+    has_one_attached :image
+    validates :image, presence:true
+
+
+
+
 
     # def borrowers
     #     self.bookings.map { |booking| booking.user }

@@ -1,4 +1,7 @@
 <h1>Booking show </h1>
 <%= @booking.item.name %>
-
-<%= button_to 'Return item', return_item_path(item_id: @booking.item_id, booking_id: @booking.id) %>
+<% if !@booking.booking_completed %>
+    <%= button_to 'Return item', return_item_path(item_id: @booking.item_id, booking_id: @booking.id) %>
+<% else %>
+    <%= button_to 'Leave review'%>
+<%end%>
