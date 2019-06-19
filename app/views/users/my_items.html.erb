@@ -1,0 +1,7 @@
+<body>
+<% @user.items.each do |item|%>
+<ul>
+<li>Item: <%= item.name %> - Price <%= item.price%>£</li>
+</ul>
+<%end%>
+</body>

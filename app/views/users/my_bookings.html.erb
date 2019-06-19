@@ -1,0 +1,8 @@
+
+<% @bookings.each do |booking| %>
+<ul>
+<li><%= booking.booking_completed%>
+<li><%= link_to "Booking Details", booking_path(booking) %>
+<li>Item: <%= booking.item.name %></li>
+</ul>
+<%end%>

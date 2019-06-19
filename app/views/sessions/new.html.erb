@@ -1,0 +1,9 @@
+<p id="alert"><%= alert%></p>
+<h1>Login page</h1>
+<%= form_for :session, url:login_path do |f| %>
+<%= f.label :email%>
+<%= f.email_field :email, placeholder: "Enter your email" %>
+<%= f.label :password%>
+<%= f.password_field :password%>
+<%= f.submit "Log in" %>
+<%end%>
