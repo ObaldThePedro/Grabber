@@ -14,8 +14,11 @@ class ItemsController < ApplicationController
       @item.save
       if @item.save
         redirect_to my_items_path
-      else
+      elsif @item.name == ""
         flash.now[:error] = "Please give a name to your item"
+        render 'new'
+      else !@item.image
+        flash.now[:error] = "Please enter an image"  
         render 'new'
       end
     end

@@ -2,8 +2,14 @@ class Item < ApplicationRecord
     belongs_to :user
     has_many :bookings
     has_many :reviews, through: :bookings
-    has_one_attached :image
     validates :name, presence: true
+    validates :image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..5.megabytes }
+    has_one_attached :image
+
+    
+end
+    
+    
 
 
 
@@ -24,5 +30,3 @@ class Item < ApplicationRecord
     #     end_date = Item.booking.end_date
     #     currentDate.between?(start_date, end_date)
     # end
-
-end

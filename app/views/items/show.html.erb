@@ -1,5 +1,9 @@
 <h3>Name- <%= @item.name %></h3>
 <h3>Description- <%= @item.description %></h3>
+<%if @item.image %>
+<%= image_tag @item.image %>
+<%end%>
+
 <%= image_tag(@item.image)%>
 <% if @item.user_id != session[:user_id] %>
     <%= link_to "Borrow", create_booking_path(item_id: @item.id) %>
