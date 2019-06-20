@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Grabber</title>
     <%= csrf_meta_tags %>
@@ -7,19 +7,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width">
   </head>
 
   <body>
+<%= render 'layouts/navigation'%>
+
+
 <% if logged_in? %>
-Logged in as <%= current_user.first_name + " " + current_user.last_name %>.
 <%= link_to "Log Out", logout_path %>
 <%= link_to "My bookings", my_bookings_path%>
 <%= link_to "Booking history", bookings_history_path%>
 <%= link_to "My items", my_items_path%>
 <%= link_to "Homepage", welcome_path(session[:user_id])%>
-<% else %>  
-<%= link_to "Sign Up", signup_path %> or 
-<%= link_to "Log In", login_path %>
 <% end %>
 <% if flash[:errors] %>
 <div class="errors">
@@ -28,6 +28,9 @@ Logged in as <%= current_user.first_name + " " + current_user.last_name %>.
     <% end %>
 </div>
   <% end %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
+  <%= render 'layouts/footer'%>
 </html>

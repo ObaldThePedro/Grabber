@@ -1,3 +1,6 @@
+<% if @bookings.length == 0 %>
+    <p>Borrow your first item <%= link_to "here", items_path %></p>
+<%end%>
 <% @bookings.each do |booking| %>
 <ul>
 <li><%= booking.booking_completed%>

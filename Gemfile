@@ -3,7 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
-
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem 'activestorage-validator'
 gem 'attach', '~> 1.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
