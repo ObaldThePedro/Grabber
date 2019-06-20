@@ -1,3 +1,5 @@
-<h1><%= "Welcome to Grabber #{@user.first_name}" %></h1>
-<%= link_to "Borrow item?", items_path%><br>
-<%= link_to "Create item", new_item_path %>
+<h1 id="title" align="center"><%= "Welcome to Grabber #{@user.first_name}" %></h1>
+<div class="button-group" align="center">
+<%= link_to "Borrow item", items_path, class: "btn btn-primary btn-md", id:"button"%>
+<%= link_to "Create item", new_item_path, class: "btn btn-primary btn-md", id:"button"%>
+</div>

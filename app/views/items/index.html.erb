@@ -1,8 +1,10 @@
-<h1>All items but not mine</h1>
+<h1 id="title">Items Available</h1>
 
 <% @items.each do |item|%>
-<ul>
-<%= link_to item.name, item_path(item) %>
-<%= image_tag(item.image)%>
-</ul>
+<div class="entry col-xs-4 col-xs-offset-0 col-lg-4 col-lg-offset-0">
+      <div class="product_img img-responsive", align="center">
+        <%= link_to item.name, item_path(item) %>
+        <%= image_tag(item.image)%>
+    </div>
+</div>
 <%end%>
