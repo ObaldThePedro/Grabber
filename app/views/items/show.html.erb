@@ -1,15 +1,23 @@
-<h3>Name- <%= @item.name %></h3>
-<h3>Description- <%= @item.description %></h3>
+<h3 align="center" id="text"><%= @item.name %></h3>
 <%if @item.image %>
-<%= image_tag @item.image %>
+    <div align="center">
+    <%= image_tag(@item.image, style: "width: 60%; height:300px") %>
+    </div>
 <%end%>
-
-<%= image_tag(@item.image)%>
+<br>
+<div align="center">
 <% if @item.user_id != session[:user_id] %>
-    <%= link_to "Borrow", create_booking_path(item_id: @item.id) %>
+    <%= link_to "Borrow",create_booking_path(item_id: @item.id), class:"btn btn-primary btn-md" %>
+</div>
 <% else %>
     <%= link_to 'Delete item', item_path(@item),
     method: :delete,
     data: {confirm: 'Are you sure you want to remove this item?' }%><br>
     <%= link_to 'Update item details', edit_item_path(@item) %>    
 <%end%>
+<div>
+<h3 align="center" id="text">Description</h3>
+</div>
+<div>
+<p id="text"><%= @item.description %></p>
+</div>

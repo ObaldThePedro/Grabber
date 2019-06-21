@@ -32,10 +32,12 @@ class UsersController < ApplicationController
     end
 
     def my_bookings
+        @i = 0
         @bookings = Booking.all.select{ |booking| (booking.user_id == session[:user_id] && !booking.booking_completed)}
     end
 
     def bookings_history
+        @i = 0
         @bookings = Booking.all.select{ |booking| (booking.user_id == session[:user_id] && booking.booking_completed)}
     end
 

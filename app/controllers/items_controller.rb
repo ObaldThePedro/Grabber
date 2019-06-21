@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 
     def update
       @item = Item.find params[:id]
-      if @item.update(:image, :description)
+      if @item.update()
         redirect_to my_items_path
       else
         flash.now[:error] = "Please give a name to your item"

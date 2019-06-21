@@ -1,10 +1,17 @@
 <h1 id="title">Items Available</h1>
-
-<% @items.each do |item|%>
+<% if @items.length == 0%>
+<div align="center">
+<h3 id="text">There are no items to be displayed</h3>
+</div>
+<%else %>
+  <% @items.each do |item|%>
 <div class="entry col-xs-4 col-xs-offset-0 col-lg-4 col-lg-offset-0">
       <div class="product_img img-responsive", align="center">
-        <%= link_to item.name, item_path(item) %>
-        <%= image_tag(item.image)%>
+      <tr>
+        <td><%= link_to item.name, item_path(item), style: "color:white" %></td>
+        <td><%= image_tag(item.image)%></td>
+        </tr>
     </div>
 </div>
+<%end%>
 <%end%>

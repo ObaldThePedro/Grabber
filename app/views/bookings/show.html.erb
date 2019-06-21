@@ -1,7 +1,30 @@
-<h1>Booking show </h1>
-<%= @booking.item.name %>
-<% if !@booking.booking_completed %>
-    <%= button_to 'Return item', return_item_path(item_id: @booking.item_id, booking_id: @booking.id) %>
-<% else %>
-    <%= link_to 'Leave review', new_review_path(booking_id: @booking.id) %>
-<%end%>
+
+<div>
+<h1 align="center" id="title">Booking</h1>
+</div>
+<table class="table row-md-6" style="margin-top: 30px">
+ <thead class="thead">
+   <tr id="text">
+     <th scope="col-sm-2">Item name</th>
+     <th scope="col-sm-2">Item Description</th>
+     <th scope="col-smg-2">Image</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr id="text">
+     <th scope="row"><%= @booking.item.name %></th>
+     <td><%= @booking.item.description %></td>
+     <td><%= image_tag(@booking.item.image, style: "width: 50%; height: auto")%></td>
+     <td><% if !@booking.booking_completed %>
+         <%= button_to 'Return item', return_item_path(item_id: @booking.item_id, booking_id: @booking.id), class: "btn btn-primary btn-lg" %>
+     <% else %>
+     <div>
+         <%= link_to 'Leave review', new_review_path(booking_id: @booking.id), class: "btn btn-primary btn-md" %>
+    </div>
+     <%end%></td>
+   </tr>
+ </tbody>
+</table>
+
+
+

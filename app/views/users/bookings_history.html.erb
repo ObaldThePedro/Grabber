@@ -1,10 +1,31 @@
 <% if @bookings.length == 0 %>
-    <p>Borrow your first item <%= link_to "here", items_path %></p>
+<div align="center">
+    <h3 id="text">Borrow your first item <%= link_to "here", items_path,id:"marine"%></h3>
+</div>
+<% else %>
+<h1 id="title">Booking History</h1>
+<table class="table table-hover row-md-6" style="margin-top: 60px">
+ <thead class="thead">
+   <tr>
+     <th scope="col" id="text">#</th>
+     <th scope="col" id="text">Item name</th>
+     <th scope="col" id="text">Item Description</th>
+   </tr>
+ </thead>
+ <% @bookings.each do |booking|%>
+ <tbody>
+   <tr>
+     <th scope="row" id="text"><%= @i += 1 %></th>
+     <td id="text"><%= booking.item.name%></td>
+     <td><%= link_to "Booking Details", booking_path(booking), id: "marine"%></td>
+   </tr>
+ </tbody>
+ <%end%>
+</table>
+
+</div>
 <%end%>
-<% @bookings.each do |booking| %>
-<ul>
-<li><%= booking.booking_completed%>
-<li><%= link_to "Booking Details", booking_path(booking) %>
-<li>Item: <%= booking.item.name %></li>
-</ul>
-<%end%>
+
+
+
+

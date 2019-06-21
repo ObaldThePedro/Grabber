@@ -1,13 +1,42 @@
 <% if @bookings.length == 0 %>
-    <p>You don't have any borrowed items. Maybe you can fix those Levi's jeans that you love with a sewing machine...<%= link_to "Check it out!", items_path %></p>
+<div align="center">
+    <div>
+    <h3 id="text">You don't have any borrowed items.</h3> 
+    </div>
+    <div>
+    <p id="text">Maybe you can fix those Levi's jeans that you love with a sewing machine...</p>
+    </div>
+</div>
+<div align="center">
+<%= link_to "Check it out!", items_path, class:"btn btn-primary btn-md", id:"button"%>
+</div>
 <%else %>
-    <p>You currently have <%= @bookings.length %> items booked,please don't forget to return them!</p>
-    <%end%>
+    <h1 id="title">My Bookings</h1>
+    <table class="table table-hover row-md-6" style="margin-top: 60px">
+ <thead class="thead">
+   <tr>
+     <th scope="col" id="text">#</th>
+     <th scope="col" id="text">Item name</th>
+     <th scope="col" id="text">Item Description</th>
+   </tr>
+ </thead>
+ <% @bookings.each do |booking|%>
+ <tbody>
+   <tr>
+     <th scope="row" id="text"><%= @i += 1 %></th>
+     <td id="text"><%= booking.item.name%></td>
+     <td><%= link_to "Booking Details", booking_path(booking), id: "marine"%></td>
+   </tr>
+ </tbody>
+ <%end%>
+</table>
 
-<% @bookings.each do |booking| %>
-<ul>
-<li><%= booking.booking_completed%>
-<li><%= link_to "Booking Details", booking_path(booking) %>
-<li>Item: <%= booking.item.name %></li>
-</ul>
+</div>
+    <div align="center">
+    <p id="text">You currently have <%= @bookings.length %> items booked,please don't forget to return them!</p>
+    </div>
 <%end%>
+
+
+
+

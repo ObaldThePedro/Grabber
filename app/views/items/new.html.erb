@@ -1,12 +1,37 @@
 <h1 id="title" align="center">Create Item</h1>
-<%= form_for @item do |f|%>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
-<%= f.label :description %>
-<%= f.text_area :description %><br>
-<%= f.label :image %>
-<%= f.file_field :image %>
-<%= f.submit %>
+
+
+<div class='row' >
+<%= form_for(@item, :html => {:class => "form-horizontal", role: "form"}) do |f|%>
+
+<div class="form-group">
+    <div class="col-md-5 control-label">
+      <%= f.label :name, id:"text"%>
+    </div>
+    <div class="col-xs-4"> 
+      <%= f.text_field :name, class:"form-control" %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-5 control-label">
+      <%= f.label :description, id:"text"  %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.text_area :description, rows: 10 ,class:"form-control"%>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-5 control-label">
+      <%= f.label :image, id:"text" %>
+    </div>
+    <div class="col-xs-2">  
+      <%= f.file_field :image, id:"text" %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-9 control-label">
+      <%=  f.submit class: "btn btn-primary btn-lg"%>
+    </div>
 <%end%>
 <% if flash[:error] %>
   <p>

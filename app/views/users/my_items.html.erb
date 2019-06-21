@@ -1,10 +1,16 @@
-<body>
 <%if @user.items.length == 0 %>
-    <p>You don't have any items. There's maybe someone in need of that drill that is somewhere lost in your attic. <%=link_to "Lend an item", new_item_path %> </p>
+    <div align="center">
+        <div>
+            <h3 id="text">You don't have any items.</h3>
+        <div>
+        <div>
+            <p id="text">There's maybe someone in need of that drill that is somewhere lost in your attic.</p>
+        </div>
+    </div>
+     <%=link_to "Lend an item", new_item_path, class:"btn btn-primary btn-md", id:"button"%> </p>
 <%end%>
 <% @user.items.each do |item|%>
 <ul>
 <li>Item: <%= link_to item.name, item_path(item) %></li>
 </ul>
 <%end%>
-</body>
