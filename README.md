@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails application that allows a user to borrow and lend items.
 
-Things you may want to cover:
+Steps to Start application:
 
-* Ruby version
+- rails s
 
-* System dependencies
+- navigate to http://localhost:3000/signup
 
-* Configuration
+- Enter personal information and login.
 
-* Database creation
+- You can upload items to be lent, or you can lend available items by clicking the picture.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
