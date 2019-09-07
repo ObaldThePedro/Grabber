@@ -20,4 +20,7 @@
 </div>
 <div>
 <p id="text"><%= @item.description %></p>
+<h3>Reviews</h3>
+<% reviews = @reviews.map{ |review| (review.user.first_name + "-" + " " + review.description) }%>
+<p><%= reviews.join(', ') %></p>
 </div>

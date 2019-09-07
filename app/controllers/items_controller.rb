@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
 
     def show
       @item = Item.find params[:id]
+      @reviews = Review.all.select{ |review| (review.booking.item_id == @item.id)}
     end
 
     def edit
@@ -33,7 +34,7 @@ class ItemsController < ApplicationController
 
     def update
       @item = Item.find params[:id]
-      if @item.update()
+      if @item.update(answer_params)
         redirect_to my_items_path
       else
         flash.now[:error] = "Please give a name to your item"
@@ -50,7 +51,7 @@ class ItemsController < ApplicationController
     private
 
    def answer_params
-       params.require(:item).permit(:name, :description, :image)
+       params.require(:item).permit(:name, :description, :image, :review)
    end
 
 end
